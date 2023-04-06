@@ -13,6 +13,7 @@ import Foundation
 
 // FIXME: copy pasted the values as is from open weather API
 // FIXME: Find better name for class CityWeather
+// FIXME: We could have moved all these model to their own classes but it was hard for me to rememebr and reference while writing
 public struct Coordinates: Codable {
     public let longitude: Double
     public let latitude: Double
