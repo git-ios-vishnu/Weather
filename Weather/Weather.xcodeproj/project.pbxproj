@@ -163,7 +163,6 @@
 			children = (
 				278CF5C029DBBD8500088CAB /* WeatherApp.swift */,
 				278CF5C229DBBD8500088CAB /* ContentView.swift */,
-				27EECBC929DCE18D00EED65B /* WeatherViewModelProvider.swift */,
 				27EECBCB29DCE7E000EED65B /* WeatherRootViewController.swift */,
 				27EECBEA29DDE25B00EED65B /* ListViews */,
 				27EECBEC29DDE28800EED65B /* DetailView */,
@@ -228,6 +227,7 @@
 		27EECBE529DD5A0000EED65B /* UI Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				27EECBC929DCE18D00EED65B /* WeatherViewModelProvider.swift */,
 				27EECBE329DD592700EED65B /* BackgroundView.swift */,
 			);
 			path = "UI Utilities";
