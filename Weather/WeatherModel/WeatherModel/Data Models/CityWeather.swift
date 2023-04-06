@@ -11,6 +11,8 @@ import Foundation
  Made all All values as optional as I don't know which values are mandatory and which are not
  */
 
+// FIXME: copy pasted the values as is from open weather API
+// FIXME: Find better name for class CityWeather
 public struct Coordinates: Codable {
     public let longitude: Double
     public let latitude: Double
@@ -96,11 +98,11 @@ public class CityWeather: Codable, ObservableObject {
     public let date: Int?
     public let sys: WeatherSys?
     public let timezone: Int?
-    public let id: Int?
+    public let id: Int
     public let name: String?
     public let code: Int?
     
-    init(coordinates: Coordinates?, weather: [weatherCondition]?, base: String?, main: WeatherMainValue?, visibility: Int?, wind: WeatherWind?, rain: Rain?, clouds: WeatherClouds?, date: Int?, sys: WeatherSys?, timezone: Int?, id: Int?, name: String?, code: Int?) {
+    init(coordinates: Coordinates?, weather: [weatherCondition]?, base: String?, main: WeatherMainValue?, visibility: Int?, wind: WeatherWind?, rain: Rain?, clouds: WeatherClouds?, date: Int?, sys: WeatherSys?, timezone: Int?, id: Int, name: String?, code: Int?) {
         self.coordinates = coordinates
         self.weather = weather
         self.base = base

@@ -1,5 +1,5 @@
 //
-//  WMNetworkManager.swift
+//  Network.swift
 //  WeatherModel
 //
 //  Created by Vishnu Ankinapalli on 4/3/23.
@@ -13,7 +13,7 @@ public struct NetworkConstants {
 }
 
 // Defined Backend calls as a protocol so that we could fetch data in whatever format we wanted(JSON/XML)
-// Also, this way caller doesn't have to know the implemenattion of network data type
+// Also, this way caller doesn't have to know the implementation of network data type
 public protocol BackendCalls {
     // Fetch cities by name or zip
     func fetchCitiesBy(nameOrZip: String?, completion: @escaping (_ cities: [City]?, _ error: Error?) -> ())
@@ -22,7 +22,7 @@ public protocol BackendCalls {
     func fetchWeather(for city:City, completion: @escaping (_ weather: CityWeather?,_ error: Error?) -> ())
 }
 
-public class NetworkManager:BackendCalls, ObservableObject {
+public class Network:BackendCalls, ObservableObject {
     
     private var primaryURLSession: WeatherURLSession
     
@@ -31,6 +31,7 @@ public class NetworkManager:BackendCalls, ObservableObject {
     }
     
     // Returns the cities by using either zip or city name search
+    // First checks for zip and then city
     public func fetchCitiesBy(nameOrZip: String?, completion: @escaping ([City]?, Error?) -> ()) {
         
         let urlRequest = URLRequest.urlRequest(forCitieByNameOrZip: nameOrZip)

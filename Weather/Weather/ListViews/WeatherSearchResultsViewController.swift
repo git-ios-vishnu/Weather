@@ -10,6 +10,7 @@ import UIKit
 import WeatherModel
 import SwiftUI
 
+// Search results tableView for search controller
 protocol WeatherSearchResultsViewControllerDelegate {
     func didSelect(city: City)
 }

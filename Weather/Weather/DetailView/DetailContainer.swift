@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 import WeatherModel
 
+// Container for details
 struct DetailContainer: View {
     let cityWeather: CityWeather
     @Environment(\.colorScheme) var coloScheme

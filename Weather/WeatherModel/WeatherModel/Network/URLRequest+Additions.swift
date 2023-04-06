@@ -11,10 +11,11 @@ import Foundation
 
 // API related endpoints and API keys
 /*
- We could better manage the API keys by reading the values from keyChain. Get the API key at the time of login and store in key chain
+ We could better manage the API keys by reading the values from keyChain.
+ Get the API key at the time of login and store it in key chain
  */
 /*
- End points could be moved envioronment plist for easy access and manipulation
+ End points could be moved to envioronment plist for easy access and manipulation
  */
 private struct OpenWeatherAPI {
     static let APIKey = "c189a3b4515285fc0f91e3d577eef54a"

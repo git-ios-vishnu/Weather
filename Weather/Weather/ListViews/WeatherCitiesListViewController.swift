@@ -11,6 +11,7 @@ import WeatherModel
 import MapKit
 import SwiftUI
 
+// FIXME: I should have used collectionView but since TableView implementation is super simple so went with this
 extension Notification.Name {
     static let didSelectCity = Notification.Name("didSelectCity")
 }
@@ -112,12 +113,24 @@ class WeatherCitiesListViewController: UITableViewController, WeatherSearchResul
         
     }
     
+    func doesWeatherExistsFor(city: CityWeather) -> Bool {
+        let cityWeather = self.cities?.first(where: { $0.id == city.id })
+        return cityWeather != nil ? true : false
+    }
+    
+    func add(cityWeather: CityWeather) {
+        
+        if !self.doesWeatherExistsFor(city: cityWeather) {
+            self.cities?.append(cityWeather)
+            self.postNotification(forCurrentSelection: cityWeather)
+        }
+    }
+    
     func didSelect(city: WeatherModel.City) {
         self.network .fetchWeather(for: city) {[weak self] weather, error in
             
             if let weather = weather {
-                self?.cities?.append(weather)
-                self?.postNotification(forCurrentSelection: weather)
+                self?.add(cityWeather: weather)
             }
         }
         searchController?.searchBar.text = nil
@@ -193,8 +206,7 @@ extension WeatherCitiesListViewController {
         if let city = city {
             network.fetchWeather(for: city) {[weak self] weather, error in
                 if let weather = weather {
-                    self?.cities?.append(weather)
-                    self?.postNotification(forCurrentSelection: weather)
+                    self?.add(cityWeather: weather)
                 }
                 else if let error = error {
                     print(error)

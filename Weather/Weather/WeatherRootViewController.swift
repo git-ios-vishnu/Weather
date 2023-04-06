@@ -14,14 +14,14 @@ import WeatherModel
 // Tried some but they aren't as I expected
 class WeatherRootViewController: UISplitViewController, UISplitViewControllerDelegate {
     
-    let networkManager: BackendCalls
+    let network: BackendCalls
     var listViewController: WeatherCitiesListViewController
     var detailViewController: WeatherCityDetailsViewController
     
-    init(style: UISplitViewController.Style, networkManager: BackendCalls) {
-        self.networkManager = networkManager
-        listViewController = WeatherCitiesListViewController(network: networkManager)
-        detailViewController = WeatherCityDetailsViewController(network: networkManager)
+    init(style: UISplitViewController.Style, network: BackendCalls) {
+        self.network = network
+        listViewController = WeatherCitiesListViewController(network: network)
+        detailViewController = WeatherCityDetailsViewController(network: network)
 
         super.init(style: style)
     }

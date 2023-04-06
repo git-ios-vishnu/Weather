@@ -13,20 +13,23 @@ extension Notification.Name {
 }
 
 // This is a wrapper class for URLSession to handle customizations as per our needs
+// FIXME: Handle retries
+// FIXME: Support should be added for different task
+// FIXME: Authentication handling. While authentication is pending, stage the API calls
 public class WeatherURLSession: ObservableObject {
     
     private var urlSession: URLSession
     
     @Published public private(set) var inProgressAPICalls = 0
     
-    private struct WMNetworkConstants {
+    private struct Constants {
         static let maxConcurrentConnections = 10
         static let successHttpResponseCode = 200
     }
     
    public init(timeOut: Double) {
         let urlConfiguration = URLSessionConfiguration.ephemeral
-        urlConfiguration.httpMaximumConnectionsPerHost = WMNetworkConstants.maxConcurrentConnections
+        urlConfiguration.httpMaximumConnectionsPerHost = Constants.maxConcurrentConnections
         urlConfiguration.timeoutIntervalForRequest = timeOut
         
        urlSession = URLSession(configuration: urlConfiguration)
@@ -63,7 +66,7 @@ public class WeatherURLSession: ObservableObject {
                         return
                     }
                     
-                    if httpResponse.statusCode == WMNetworkConstants.successHttpResponseCode {
+                    if httpResponse.statusCode == Constants.successHttpResponseCode {
                         completionHandler(data, nil)
                     }
                     else {

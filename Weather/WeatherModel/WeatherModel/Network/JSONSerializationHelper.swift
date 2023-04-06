@@ -7,6 +7,8 @@
 
 import Foundation
 
+
+/// JSON decoding. We could have all of our custom JSON decoding considerations here
 public class JSONSerializationHelper {
     
     public class func decodeResponse<T: Decodable>(data: Data) -> T? {

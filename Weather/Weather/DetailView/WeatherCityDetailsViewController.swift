@@ -10,6 +10,8 @@ import UIKit
 import WeatherModel
 import SwiftUI
 
+// Courtesy: UI is inspired by projects available in internet
+// FIXME: Didn't spend much time on UI design so bare with it
 class WeatherCityDetailsViewController: UIViewController {
     
     var currentCityWeather: CityWeather?

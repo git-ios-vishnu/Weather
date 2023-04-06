@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 import WeatherModel
 
+// FIXME: Background colors and design needs refinements
 class WeatherCityTableViewCell: UITableViewCell {
     var cityWeather: CityWeather?
     

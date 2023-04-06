@@ -7,6 +7,7 @@
 
 import Foundation
 
+// Known error codes
 public enum WeatherError: Error {
 case httpError
 case failedWithHTTPStatusCode(statusCode: Int)

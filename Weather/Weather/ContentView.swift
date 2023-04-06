@@ -9,16 +9,16 @@ import SwiftUI
 import WeatherModel
 
 struct RootView: UIViewControllerRepresentable {
-    @EnvironmentObject var network: NetworkManager
+    @EnvironmentObject var network: Network
     
     typealias UIViewControllerType = WeatherRootViewController
     
     func makeUIViewController(context: Context) -> WeatherRootViewController {
-        return WeatherRootViewController(style: .doubleColumn, networkManager: network)
+        return WeatherRootViewController(style: .doubleColumn, network: network)
     }
     
     func updateUIViewController(_ uiViewController: WeatherRootViewController, context: Context) {
-        // TODO
+        // TODO:
     }
 }
 

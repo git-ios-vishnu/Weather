@@ -11,10 +11,10 @@ import WeatherModel
 class WeatherViewModelProvider: ObservableObject {
     
     let primaryWeatherURLSession = WeatherURLSession(timeOut: NetworkConstants.defaultTimeOut)
-    let networkManager: NetworkManager
+    let network: Network
     
     init() {
-        networkManager = NetworkManager(primaryURLSession: primaryWeatherURLSession)
+        network = Network(primaryURLSession: primaryWeatherURLSession)
     }
 
 }
